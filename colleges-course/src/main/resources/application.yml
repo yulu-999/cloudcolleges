@@ -1,0 +1,39 @@
+# 配置启动的端口
+server:
+  port: 9002
+# 配置 hystrix
+feign:
+  hystrix:
+    enabled: true
+#配置服务的名称
+spring:
+  application:
+    name: course
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blacklist?userSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+
+# 配置注册中心 eureka
+eureka:
+  instance:
+    instance-id: course
+    appname: course
+
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10000/eureka   #Eureka注册服务中心的通信zone和url地址 通常以 ，分割
+    register-with-eureka: true   #是否要向Eureka注册中心注册自己，自己是服务端，所以设定为false意味着不需要
+    fetch-registry: true  #true表示客户端,false是注册中心服务端,单注册中心的时候就为false，集群注册中心的时候就要为true
+
+#5.服务监控的信息配置
+info:
+  app.name: course
+  company.name: team.rookie

@@ -1,0 +1,39 @@
+# 配置启动的端口
+server:
+  port: 80
+
+# 配置注册中心 eureka
+eureka:
+  instance:
+    instance-id: myzuul
+    appname: myzuul
+
+  client:
+    service-url:
+      #Eureka注册服务中心的通信zone和url地址 通常以 ，分割
+      defaultZone: http://127.0.0.1:10000/eureka
+    register-with-eureka: true   #是否要向Eureka注册中心注册自己，自己是服务端，所以设定为false意味着不需要
+    fetch-registry: true  #true表示客户端,false是注册中心服务端,单注册中心的时候就为false，集群注册中心的时候就要为true
+
+#5.服务监控的信息配置
+info:
+  app.name: myzuul #显示的应用的名字
+  company.name: team.rookie  #公司的名字
+
+
+#4.zuul的配置
+zuul:
+  routes:      #该配置方式中，user-route只是给路由一个名称，可以任意起名。在这里意思为服务user服务提供者的route(路由)
+    admin:  #当前这个理由是直接访问服务的提供者即hystrix-8001,或者8002,或者8003(因为服务提供者是HA的所以可以是这样的情况)
+      service-id: admin
+      path: /admin/**
+    course:
+      service-id: course
+      path: /course/**
+    remark:
+      service-id: remark
+      path: /remark/**
+
+feign:
+  hystrix:
+    enabled: true

@@ -1,0 +1,15 @@
+server:
+  # 配置启动的端口
+  port: 10000
+#Eureka注册中心的配置
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    register-with-eureka: false   #是否要向Eureka注册中心注册自己，自己是服务端，所以设定为false意味着不需要
+    fetch-registry: false  #true表示客户端,false是注册中心服务端,单注册中心的时候就为false，集群注册中心的时候就要为true
+    service-url: #注册中心监控页面的网址
+      defaultZone : http://127.0.0.1:10000/eureka
+  dashboard:
+    enabled: true
+    path: /myeureka
