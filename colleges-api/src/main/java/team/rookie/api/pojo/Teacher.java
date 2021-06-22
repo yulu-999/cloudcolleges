@@ -9,38 +9,36 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * @ClassName Student
- * @Description TODO 学生
+ * @ClassName Teacher
+ * @Description TODO 教师
  * @Author tran
- * @Date 2021/6/22 15:20
+ * @Date 2021/6/22 20:38
  * @Version 1.0
  **/
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("student")
-public class Student {
+@TableName("teacher")
+public class Teacher {
 
-    //学生id
-    @TableId("studnet_id")
-    private String studentId;
-    //学生姓名
-    @TableField("student_name")
-    private String studentName;
-    //学生性别
-    @TableField("student_sex")
-    private Integer studentSex;
-    //学号
+    //教师id
+    @TableId("teacher_id")
+    private String teacherId;
+    //教师姓名
+    @TableField("teacher_name")
+    private String teacherName;
+    //教师性别
+    @TableField("teacher_sex")
+    private Integer teacherSex;
+    //工号
     @TableField("number")
     private String number;
-    //学生密码
+    //教师密码
     @TableField("password")
     private String password;
-    //所属班级
-    @TableField("cid")
-    private String cid;
     //学校名称
     @TableField("school")
     private String school;
+
 }
