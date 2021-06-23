@@ -25,6 +25,9 @@ public class RemarkServiceImpl implements IRemarkService {
         Map<String, Object> maps = adminFeignService.getTokenByID(token);
         if (maps.get("data")==null){
             return maps;
+        }else {
+            Object key;
+            String studentId =  maps.get("data").toString();
         }
         return null;
     }

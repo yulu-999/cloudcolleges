@@ -28,7 +28,10 @@ public class LoginController {
 
     @RequestMapping("/token")
     public Map<String, Object> getToken(String token){
-        return ReturnMapUtil.printf(200,"成功",TokenUtils.getToken(token));
+        if (TokenUtils.getToken(token)==null)
+            return ReturnMapUtil.printf(-1,"请先登录");
+        else
+            return ReturnMapUtil.printf(200,"请先登录",TokenUtils.getToken(token));
     }
 
 
