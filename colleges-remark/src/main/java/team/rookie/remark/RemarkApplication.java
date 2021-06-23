@@ -16,7 +16,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient //服务发现
-@EnableFeignClients
+@EnableFeignClients(basePackages = "team.rookie.remark.feign")
 public class RemarkApplication {
 
     public static void main(String[] args) {

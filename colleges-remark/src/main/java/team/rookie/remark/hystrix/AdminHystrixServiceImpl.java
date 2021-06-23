@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import team.rookie.api.utils.ReturnMapUtil;
 import team.rookie.remark.feign.IAdminFeignService;
 
+import java.util.Map;
+
 
 /**
  * @desc   做熔断处理
@@ -19,8 +21,7 @@ public class AdminHystrixServiceImpl implements IAdminFeignService {
      * @return
      */
     @Override
-    public String getTokenByID(String token) {
-
-        return "{\"code\":500,\"msg\":\"admin异常\"}";
+    public Map<String, Object> getTokenByID(String token) {
+        return ReturnMapUtil.printf(555,"admin服务错误");
     }
 }

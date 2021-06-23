@@ -15,16 +15,14 @@ import java.util.Map;
 public class RemarkController {
 
     @Autowired
-    public IRemarkService remarkService;
+    private IRemarkService remarkService;
 
-    @Qualifier("adminHystrixServiceImpl")
-    @Autowired
-    public IAdminFeignService adminFeignService;
+
+
 
 
     @RequestMapping("/add")
     public Map<String, Object> add(String courseId, Integer level,String token,String content){
-        String tokenByID = adminFeignService.getTokenByID(token);
         return  null;
     }
 

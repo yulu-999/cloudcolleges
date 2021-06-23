@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import team.rookie.remark.hystrix.AdminHystrixServiceImpl;
 
+import java.util.Map;
+
 @FeignClient(name = "admin",fallback = AdminHystrixServiceImpl.class)
 @Component
 public interface IAdminFeignService {
@@ -18,11 +20,7 @@ public interface IAdminFeignService {
      * @param token
      * @return
      */
-    @RequestMapping(value = "/token",method = RequestMethod.GET)
-    public String getTokenByID(@RequestParam("token") String token);
-
-
-
-
+     @RequestMapping(value = "/token",method = RequestMethod.GET)
+     Map<String, Object> getTokenByID(@RequestParam("token") String token);
 
 }

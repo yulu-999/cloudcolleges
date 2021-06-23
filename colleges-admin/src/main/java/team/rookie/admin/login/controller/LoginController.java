@@ -8,6 +8,7 @@ import team.rookie.admin.login.service.ILoginService;
 import team.rookie.admin.utils.TokenUtils;
 import team.rookie.api.utils.ReturnMapUtil;
 
+import javax.xml.crypto.Data;
 import java.util.Map;
 
 /**
@@ -26,8 +27,8 @@ public class LoginController {
 
 
     @RequestMapping("/token")
-    public String getToken(String token){
-        return TokenUtils.getToken(token);
+    public Map<String, Object> getToken(String token){
+        return ReturnMapUtil.printf(200,"成功",token);
     }
 
 
