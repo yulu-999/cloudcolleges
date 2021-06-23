@@ -1,9 +1,15 @@
 package team.rookie.admin.teacher.service.impl;
+/**
+ * @desc   教师模块的M层接口实现类
+ * @author  zyf
+ * @time    6-23
+ */
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import team.rookie.admin.teacher.mapper.TeaMapper;
 import team.rookie.admin.teacher.service.ITeaService;
+import team.rookie.admin.utils.IDUtil;
 import team.rookie.api.pojo.Teacher;
 import team.rookie.api.utils.ReturnMapUtil;
 
@@ -93,5 +99,29 @@ public class TeaServiceImpl implements ITeaService {
         //修改数据
         teaMapper.updateById(teacher);
         return ReturnMapUtil.printf(1,"修改成功");
+    }
+
+    /**
+     * @desc  教师模块的添加
+     * @param name
+     * @param sex
+     * @param number
+     * @param password
+     * @param school
+     * @return
+     */
+    @Override
+    public Map<String, Object> add(String name, Integer sex, String number, String password, String school) {
+        //前台数据存入teacher
+        Teacher teacher = new Teacher();
+        teacher.setTeacherId(IDUtil.getID());
+        teacher.setTeacherName(name);
+        teacher.setNumber(number);
+        teacher.setPassword(password);
+        teacher.setSchool(school);
+        teacher.setTeacherSex(sex);
+        //添加数据
+        teaMapper.insert(teacher);
+        return ReturnMapUtil.printf(1,"添加成功");
     }
 }
