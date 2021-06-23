@@ -30,7 +30,7 @@ public class Admin {
     private String name;
     //管理员密码
     @TableField("password")
-    private Integer password;
+    private String password;
     //管理员类型
     @TableField("type")
     private String type;
