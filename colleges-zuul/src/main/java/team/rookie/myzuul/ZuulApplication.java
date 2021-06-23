@@ -15,6 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableZuulProxy  //加上zuul代理注解即可让当前项目启动的时候加载到zuul组件
 @EnableFeignClients
+
 public class ZuulApplication {
 
     public static void main(String[] args) {
