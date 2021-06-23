@@ -22,6 +22,10 @@ public class RemarkServiceImpl implements IRemarkService {
 
     @Override
     public Map<String, Object> add(String courseId, Integer level, String token, String content) {
+        Map<String, Object> maps = adminFeignService.getTokenByID(token);
+        if (maps.get("data")==null){
+            return maps;
+        }
         return null;
     }
 }

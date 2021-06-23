@@ -28,7 +28,7 @@ public class LoginController {
 
     @RequestMapping("/token")
     public Map<String, Object> getToken(String token){
-        return ReturnMapUtil.printf(200,"成功",token);
+        return ReturnMapUtil.printf(200,"成功",TokenUtils.getToken(token));
     }
 
 
