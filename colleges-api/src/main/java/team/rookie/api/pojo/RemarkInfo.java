@@ -20,7 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("remarkinfo")
-public class remarkInfo {
+public class RemarkInfo {
 
     //点评记录id
     @TableId("remarkinfo_id")
@@ -30,15 +30,15 @@ public class remarkInfo {
     private String studnetId;
     //课程id
     @TableField("course_id")
-    private Integer courseId;
+    private String courseId;
     //点评星级
     @TableField("level")
-    private String level;
+    private Integer level;
     //点评内容
     @TableField("content")
     private String content;
     //是否删除
-    @TableField("show")
-    private String show;
+    @TableField("myshow")
+    private Integer myshow;
 
 }
