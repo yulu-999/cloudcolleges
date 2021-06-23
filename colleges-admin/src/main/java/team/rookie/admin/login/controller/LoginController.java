@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import team.rookie.admin.login.service.ILoginService;
+import team.rookie.admin.utils.TokenUtils;
 import team.rookie.api.utils.ReturnMapUtil;
 
 import java.util.Map;
@@ -23,6 +24,11 @@ public class LoginController {
     @Autowired
     public  ILoginService loginServicelmpl;
 
+
+    @RequestMapping("/token")
+    public String getToken(String token){
+        return TokenUtils.getToken(token);
+    }
 
 
     /**
