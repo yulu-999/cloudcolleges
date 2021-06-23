@@ -12,7 +12,6 @@ public interface IStudentService {
 
     /**
      * 学生获取
-     * @param token
      * @param page
      * @param limit
      * @param content
