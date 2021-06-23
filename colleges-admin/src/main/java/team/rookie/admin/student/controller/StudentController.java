@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import team.rookie.admin.student.service.IStudentService;
+import team.rookie.api.pojo.Student;
 
 import java.util.Map;
 
@@ -37,8 +38,35 @@ public class StudentController {
          return iStudentService.selectAll(page,limit,content);
     }
 
+    /**
+     * @Desc 根据id查询学生
+     * @param studentId
+     * @return
+     */
+    @RequestMapping("/studnet/byid")
+    public Map<String, Object> selectByOne(Integer studentId){
+        return iStudentService.selectOne(studentId);
+    }
 
 
+    /**
+     * @desc 添加学生
+     * @param student
+     * @return
+     */
+    @RequestMapping("/student/add")
+    public Map<String, Object> add(Student student){
+        return iStudentService.addOne(student);
+    }
 
 
+    /**
+     * @desc 修改学生信息
+     * @param student
+     * @return
+     */
+    @RequestMapping("/student/update")
+    public Map<String, Object> update(Student student){
+        return iStudentService.updateOne(student);
+    }
 }

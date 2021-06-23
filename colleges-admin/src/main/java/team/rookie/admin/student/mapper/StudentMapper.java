@@ -21,4 +21,7 @@ public interface StudentMapper extends BaseMapper<Student> {
     // 分页查询
     @Select("SELECT *  FROM student  WHERE student_name LIKE  '%${content}%' or number LIKE '%${content}%' LIMIT #{page},#{limit}")
     List<Map<String, Object>> selectAllStudent(@Param("page") Integer page, @Param("limit") Integer limit, @Param("content") String content);
+
+
+
 }
