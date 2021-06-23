@@ -1,8 +1,8 @@
-package team.rookie.student.service.impl;
+package team.rookie.admin.student.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import team.rookie.student.mapper.StudentMapper;
-import team.rookie.student.service.IStudentService;
+import team.rookie.admin.student.mapper.StudentMapper;
+import team.rookie.admin.student.service.IStudentService;
 
 import java.util.Map;
 

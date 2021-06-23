@@ -1,4 +1,4 @@
-package team.rookie.student.service;
+package team.rookie.admin.student.service;
 
 import java.util.Map;
 

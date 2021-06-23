@@ -1,4 +1,4 @@
-package team.rookie.student.mapper;
+package team.rookie.admin.student.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import team.rookie.api.pojo.Student;
