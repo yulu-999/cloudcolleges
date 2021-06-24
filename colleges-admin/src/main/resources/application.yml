@@ -25,9 +25,15 @@ spring:
 # 配置注册中心 eureka
 eureka:
   instance:
+<<<<<<< HEAD
     instance-id: admin
     appname: admin
 #    prefer-ip-address: true    # 访问路径可显示ip地址
+=======
+    instance-id: lsj-admin
+    appname: cloud-admin
+    prefer-ip-address: true    # 访问路径可显示ip地址
+>>>>>>> 40136382e8cfd3001a0198c37c43daad1754c473
   client:
     service-url:
       #Eureka注册服务中心的通信zone和url地址 通常以 ，分割
