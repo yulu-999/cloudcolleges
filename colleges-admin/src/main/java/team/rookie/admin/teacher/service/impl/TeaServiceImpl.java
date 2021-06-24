@@ -134,10 +134,12 @@ public class TeaServiceImpl implements ITeaService {
      */
     @Override
     public Map<String, Object> selectTeacherById(String id) {
+
         Teacher teacher = teaMapper.selectById(id);
         if (teacher==null)
-            ReturnMapUtil.printf(-1,"没有该教师");
-        return ReturnMapUtil.printf(0,"获取成功",teacher.getTeacherName());
+            return ReturnMapUtil.printf(-1,"没有该教师");
+        else
+            return ReturnMapUtil.printf(0,"获取成功",teacher.getTeacherName());
     }
 
 

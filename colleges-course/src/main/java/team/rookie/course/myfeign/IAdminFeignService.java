@@ -1,4 +1,4 @@
-package team.rookie.course.feign;
+package team.rookie.course.myfeign;
 
 
 import org.springframework.cloud.openfeign.FeignClient;
@@ -6,14 +6,15 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import team.rookie.course.hystrix.AdminHystrixServiceImpl;
+//import team.rookie.course.hystrix.AdminHystrixServiceImpl;
 
 import java.util.Map;
 
 /**
  * @Desc 调取admin模块的接口
  */
-@FeignClient(name = "admin",fallback = AdminHystrixServiceImpl.class)
+//@FeignClient(name = "admin",fallback = AdminHystrixServiceImpl.class)
+@FeignClient("admin")
 @Component("adminFeignService")
 public interface IAdminFeignService {
 
@@ -31,7 +32,7 @@ public interface IAdminFeignService {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/teacher/byid")
+    @RequestMapping(value = "/teacher/byid",method = RequestMethod.GET)
     Map<String, Object> getTeacherById(@RequestParam("id")String id);
 
     /**
@@ -39,7 +40,7 @@ public interface IAdminFeignService {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/student/byid")
+    @RequestMapping(value = "/student/byid",method = RequestMethod.GET)
     Map<String, Object> getStudentById(@RequestParam("id")String id);
 
 

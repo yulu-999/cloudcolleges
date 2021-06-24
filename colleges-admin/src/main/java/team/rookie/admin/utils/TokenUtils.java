@@ -39,8 +39,11 @@ public class TokenUtils {
             ValueOperations<String,String> operations = redisTemplate.opsForValue();
             //更新失效时间
             String id = operations.get(token+"_token");
-            assert id != null;
-            operations.set(token+"_token",id,1, TimeUnit.DAYS);
+            if (id==null){
+                return null;
+            }else {
+                operations.set(token+"_token",id,1, TimeUnit.DAYS);
+            }
 
             return id;
         }catch (NullPointerException e){

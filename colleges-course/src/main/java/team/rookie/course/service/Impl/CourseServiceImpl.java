@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import team.rookie.api.pojo.Course;
 import team.rookie.api.pojo.CourseInfo;
 import team.rookie.api.utils.ReturnMapUtil;
-import team.rookie.course.feign.IAdminFeignService;
+import team.rookie.course.myfeign.IAdminFeignService;
 import team.rookie.course.mapper.CourseInfoMapper;
 import team.rookie.course.mapper.CourserMapper;
 import team.rookie.course.service.ICourseService;
@@ -49,20 +49,19 @@ public class CourseServiceImpl implements ICourseService {
         // 封装数据
         for (Map<String, Object> objectMap : maps) {
             HashMap<String, Object> data = new HashMap<>();
-            Map<String, Object> teacher = adminFeignService.getTeacherById(objectMap.get("teacher_id").toString());
+            Map<String, Object> teacher = adminFeignService.getTeacherById(objectMap.get("teacher_id")+"");
             if (teacher.get("data")!=null){
                 data.put("teacher",teacher.get("data"));
             }else {
                 data.put("teacher","获取失败");
             }
-
-            data.put("courseId",objectMap.get(""));
-            data.put("courseName",objectMap.get(""));
-            data.put("max",objectMap.get(""));
+            data.put("courseId",objectMap.get("course_id"));
+            data.put("courseName",objectMap.get("course_name"));
+            data.put("max",objectMap.get("course_max"));
             data.put("school","河北软件职业技术学院");
             dataList.add(data);
         }
-        return ReturnMapUtil.printf(200,"获取成功",dataList);
+        return ReturnMapUtil.printf(0,"获取成功",dataList);
     }
 
     /**

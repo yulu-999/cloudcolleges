@@ -3,10 +3,9 @@ package team.rookie.course.hystrix;
 
 import org.springframework.stereotype.Component;
 import team.rookie.api.utils.ReturnMapUtil;
-import team.rookie.course.feign.IAdminFeignService;
+import team.rookie.course.myfeign.IAdminFeignService;
 
 import java.util.Map;
-
 
 /**
  * @desc   做熔断处理

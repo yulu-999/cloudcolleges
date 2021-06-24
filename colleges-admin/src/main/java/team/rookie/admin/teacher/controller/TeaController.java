@@ -15,7 +15,6 @@ import team.rookie.admin.teacher.service.ITeaService;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/teacher")
 @CrossOrigin(origins="*")
 public class TeaController {
 
@@ -30,7 +29,7 @@ public class TeaController {
      * @param content
      * @return
      */
-    @RequestMapping("/all")
+    @RequestMapping("/teacher/all")
     public Map<String, Object> queryAll(Integer page,Integer limit,String content){
 
         return teaService.queryAll(page,limit,content);
@@ -46,7 +45,7 @@ public class TeaController {
      * @param password
      * @return
      */
-    @RequestMapping("/update")
+    @RequestMapping("/teacher/update")
     public Map<String, Object> update(String id,String teacherName,String teacherSex,String number,String password){
         return teaService.update(id,teacherName,teacherSex,number,password);
     }
@@ -61,7 +60,7 @@ public class TeaController {
      * @param school
      * @return
      */
-    @RequestMapping("/add")
+    @RequestMapping("/teacher/add")
     public Map<String, Object> add(String name,Integer sex,String number, String password, String school){
 
         return  teaService.add(name,sex,name,password,school);
