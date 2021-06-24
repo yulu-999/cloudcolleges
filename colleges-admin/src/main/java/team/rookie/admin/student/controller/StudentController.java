@@ -67,7 +67,7 @@ public class StudentController {
 
     /**
      * 修改
-     * @param studentId
+     * @param id
      * @param studentName
      * @param studentSex
      * @param number
@@ -77,7 +77,7 @@ public class StudentController {
      * @return
      */
     @RequestMapping("/student/update")
-    public Map<String, Object> update(String studentId,String studentName,Integer studentSex,String number,String password,String cid,String school){
-        return iStudentService.updateOne(studentId,studentName,studentSex,number,password,cid,school);
+    public Map<String, Object> update(String id,String studentName,Integer studentSex,String number,String password,String cid,String school){
+        return iStudentService.updateOne(id,studentName,studentSex,number,password,cid,school);
     }
 }
