@@ -124,7 +124,6 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public Map<String, Object> updateOne(Student student) {
         studentMapper.updateById(student);
-
         //返回数据
         return ReturnMapUtil.printf(0, "修改成功");
     }
