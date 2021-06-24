@@ -31,19 +31,19 @@ public interface IStudentService {
 
     /**
      * 添加
-     * @param studentName
-     * @param studentSex
+     * @param name
+     * @param sex
      * @param number
      * @param password
      * @param cid
      * @param school
      * @return
      */
-    Map<String, Object> addOne(String studentName,Integer studentSex,String number,String password,String cid,String school);
+    Map<String, Object> addOne(String name,Integer sex,String number,String password,String cid,String school);
 
     /**
      * 修改
-     * @param studentId
+     * @param id
      * @param studentName
      * @param studentSex
      * @param number
@@ -52,6 +52,6 @@ public interface IStudentService {
      * @param school
      * @return
      */
-    Map<String, Object> updateOne(String studentId,String studentName,Integer studentSex,String number,String password,String cid,String school);
+    Map<String, Object> updateOne(String id,String studentName,Integer studentSex,String number,String password,String cid,String school);
 
 }

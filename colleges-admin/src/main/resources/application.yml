@@ -25,7 +25,7 @@ spring:
 # 配置注册中心 eureka
 eureka:
   instance:
-    instance-id: lxq-admin
+    instance-id: lsj-admin
     appname: cloud-admin
     prefer-ip-address: true    # 访问路径可显示ip地址
   client:

@@ -32,7 +32,7 @@ spring:
 # 配置注册中心 eureka
 eureka:
   instance:
-    instance-id: lxq-remark
+    instance-id: lsj-remark
     appname: remark
     prefer-ip-address: true    # 访问路径可显示ip地址
 

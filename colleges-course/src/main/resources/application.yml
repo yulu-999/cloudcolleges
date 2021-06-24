@@ -20,7 +20,7 @@ spring:
 # 配置注册中心 eureka
 eureka:
   instance:
-    instance-id: lxq-course
+    instance-id: lsj-course
     appname: course
     prefer-ip-address: true    # 访问路径可显示ip地址
 

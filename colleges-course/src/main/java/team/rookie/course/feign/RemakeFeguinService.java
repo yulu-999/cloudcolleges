@@ -13,5 +13,5 @@ import team.rookie.course.hystrix.AdminHystrixServiceImpl;
  **/
 @FeignClient(name = "remake",fallback = AdminHystrixServiceImpl.class)
 @Component("remakeFeguinService")
-public class RemakeFeguinService {
+public interface RemakeFeguinService {
 }

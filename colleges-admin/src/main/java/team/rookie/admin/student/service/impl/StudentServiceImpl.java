@@ -103,8 +103,8 @@ public class StudentServiceImpl implements IStudentService {
 
     /**
      * 添加学生
-     * @param studentName
-     * @param studentSex
+     * @param name
+     * @param sex
      * @param number
      * @param password
      * @param cid
@@ -112,13 +112,13 @@ public class StudentServiceImpl implements IStudentService {
      * @return
      */
     @Override
-    public Map<String, Object> addOne(String studentName,Integer studentSex,String number,String password,String cid,String school) {
+    public Map<String, Object> addOne(String name,Integer sex,String number,String password,String cid,String school) {
         Student student = new Student();
         student.setStudentId(UUID.randomUUID().toString());        //生成随机数
         student.setSchool("河北软件职业技术学院");         //学校默认为河北软件职业技术学院
 
-        student.setStudentName(studentName);
-        student.setStudentSex(studentSex);
+        student.setStudentName(name);
+        student.setStudentSex(sex);
         student.setNumber(number);
         student.setPassword(password);
         student.setCid(cid);
@@ -130,7 +130,7 @@ public class StudentServiceImpl implements IStudentService {
 
     /**
      * 修改学生信息
-     * @param studentId
+     * @param id
      * @param studentName
      * @param studentSex
      * @param number
@@ -140,20 +140,20 @@ public class StudentServiceImpl implements IStudentService {
      * @return
      */
     @Override
-    public Map<String, Object> updateOne(String studentId,String studentName,Integer studentSex,String number,String password,String cid,String school) {
+    public Map<String, Object> updateOne(String id,String studentName,Integer studentSex,String number,String password,String cid,String school) {
 
         //判断id是否为空
-        if (studentId==null) {
+        if (id==null) {
             return ReturnMapUtil.printf(-1,"非法调用");
         }else {
-            Student student = studentMapper.selectById(studentId);
+            Student student = studentMapper.selectById(id);
             if (student==null){
                 return ReturnMapUtil.printf(-2,"该学生不存在");
             }
         }
         Student student = new Student();
 
-        student.setStudentId(studentId);
+        student.setStudentId(id);
         student.setSchool(school);
         student.setStudentName(studentName);
         student.setStudentSex(studentSex);
