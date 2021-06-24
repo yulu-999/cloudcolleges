@@ -33,7 +33,7 @@ public class StudentController {
      * @param content 搜索
      * @return
      */
-    @RequestMapping("/studnet/all")
+    @RequestMapping("/student/all")
     public Map<String,Object> selectAll(Integer page, Integer limit, String content){
          return iStudentService.selectAll(page,limit,content);
     }
@@ -43,30 +43,41 @@ public class StudentController {
      * @param studentId
      * @return
      */
-    @RequestMapping("/studnet/byid")
+    @RequestMapping("/student/byid")
     public Map<String, Object> selectByOne(Integer studentId){
         return iStudentService.selectOne(studentId);
     }
 
 
     /**
-     * @desc 添加学生
-     * @param student
+     * 添加
+     * @param studentName
+     * @param studentSex
+     * @param number
+     * @param password
+     * @param cid
+     * @param school
      * @return
      */
     @RequestMapping("/student/add")
-    public Map<String, Object> add(Student student){
-        return iStudentService.addOne(student);
+    public Map<String, Object> add(String studentName,Integer studentSex,String number,String password,String cid,String school){
+        return iStudentService.addOne(studentName,studentSex,number,password,cid,school);
     }
 
 
     /**
-     * @desc 修改学生信息
-     * @param student
+     * 修改
+     * @param studentId
+     * @param studentName
+     * @param studentSex
+     * @param number
+     * @param password
+     * @param cid
+     * @param school
      * @return
      */
     @RequestMapping("/student/update")
-    public Map<String, Object> update(Student student){
-        return iStudentService.updateOne(student);
+    public Map<String, Object> update(String studentId,String studentName,Integer studentSex,String number,String password,String cid,String school){
+        return iStudentService.updateOne(studentId,studentName,studentSex,number,password,cid,school);
     }
 }

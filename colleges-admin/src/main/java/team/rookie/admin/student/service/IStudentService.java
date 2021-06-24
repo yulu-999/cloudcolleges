@@ -30,17 +30,28 @@ public interface IStudentService {
 
 
     /**
-     * 添加学生
-     * @param student
+     * 添加
+     * @param studentName
+     * @param studentSex
+     * @param number
+     * @param password
+     * @param cid
+     * @param school
      * @return
      */
-    Map<String, Object> addOne(Student student);
+    Map<String, Object> addOne(String studentName,Integer studentSex,String number,String password,String cid,String school);
 
     /**
-     * 修改学生信息
-     * @param student
+     * 修改
+     * @param studentId
+     * @param studentName
+     * @param studentSex
+     * @param number
+     * @param password
+     * @param cid
+     * @param school
      * @return
      */
-    Map<String, Object> updateOne(Student student);
+    Map<String, Object> updateOne(String studentId,String studentName,Integer studentSex,String number,String password,String cid,String school);
 
 }
