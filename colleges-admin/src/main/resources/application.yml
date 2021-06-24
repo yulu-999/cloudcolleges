@@ -15,11 +15,6 @@ spring:
     url: jdbc:mysql://localhost:3306/cloudcolleges?userSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: root
-  http:
-    encoding:
-      force: true
-      charset: utf-8
-      enabled: true
   redis:
     host: 127.0.0.1 # Redis服务器地址
     database: 0 # Redis数据库索引（默认为0）
@@ -31,7 +26,7 @@ spring:
 eureka:
   instance:
     instance-id: admin
-    appname: admin
+    appname: CLOUD-ADMIN
   client:
     service-url:
       #Eureka注册服务中心的通信zone和url地址 通常以 ，分割
