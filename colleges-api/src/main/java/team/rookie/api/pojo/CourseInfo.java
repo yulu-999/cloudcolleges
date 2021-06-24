@@ -30,11 +30,11 @@ public class CourseInfo {
     private String studentId;
     //课程id
     @TableField("course_id")
-    private Integer courseId;
+    private String courseId;
     //加入时间
     @TableField("birth")
     private String birth;
     //是否删除
     @TableField("show")
-    private String show;
+    private Integer show;
 }

@@ -20,4 +20,8 @@ public interface ITeaService {
 
     //添加教师
     Map<String, Object> add(String name,Integer sex,String number, String password, String school);
+
+
+    //添加教师
+    Map<String, Object> selectTeacherById(String id);
 }

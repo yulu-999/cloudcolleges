@@ -122,6 +122,23 @@ public class TeaServiceImpl implements ITeaService {
         teacher.setTeacherSex(sex);
         //添加数据
         teaMapper.insert(teacher);
-        return ReturnMapUtil.printf(1,"添加成功");
+        return ReturnMapUtil.printf(0,"添加成功");
     }
+
+    /* *
+     * @Author tran
+     * @Description //TODO  查询教师姓名
+     * @Date 9:14 2021/6/24
+     * @Param [id]
+     * @return java.util.Map<java.lang.String,java.lang.Object>
+     */
+    @Override
+    public Map<String, Object> selectTeacherById(String id) {
+        Teacher teacher = teaMapper.selectById(id);
+        if (teacher==null)
+            ReturnMapUtil.printf(-1,"没有该教师");
+        return ReturnMapUtil.printf(0,"获取成功",teacher.getTeacherName());
+    }
+
+
 }

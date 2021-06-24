@@ -24,4 +24,6 @@ public class AdminHystrixServiceImpl implements IAdminFeignService {
     public Map<String, Object> getTokenByID(String token) {
         return ReturnMapUtil.printf(555,"admin服务错误");
     }
+
+
 }

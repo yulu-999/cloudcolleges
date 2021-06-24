@@ -30,7 +30,7 @@ public class Course {
     private String courseName;
     //教师id
     @TableField("teacher_id")
-    private Integer teacherId;
+    private String teacherId;
     //课程最大人数
     @TableField("course_max")
     private String courseMax;
@@ -39,7 +39,7 @@ public class Course {
     private String courseType;
     //课程是否开启
     @TableField("course_start")
-    private String courseStart;
+    private Integer courseStart;
     //周次
     @TableField("course_week")
     private String courseWeek;

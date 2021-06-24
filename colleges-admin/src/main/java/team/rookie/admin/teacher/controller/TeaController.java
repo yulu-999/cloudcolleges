@@ -68,5 +68,16 @@ public class TeaController {
     };
 
 
+    /**
+     * @Desc 获取教师姓名
+     * @param id
+     * @return
+     */
+    @RequestMapping("/teacher/byid")
+    public Map<String, Object> selectTeacherById(String id){
+        return teaService.selectTeacherById(id);
+    }
+
+
 
 }
