@@ -6,6 +6,7 @@ import team.rookie.admin.student.mapper.StudentMapper;
 import team.rookie.admin.student.mapper.TeamClassMapper;
 import team.rookie.admin.student.service.IStudentService;
 import team.rookie.api.pojo.Student;
+import team.rookie.api.pojo.Teacher;
 import team.rookie.api.utils.ReturnMapUtil;
 
 import java.util.*;
@@ -102,14 +103,25 @@ public class StudentServiceImpl implements IStudentService {
 
     /**
      * 添加学生
-     * @param student
+     * @param studentName
+     * @param studentSex
+     * @param number
+     * @param password
+     * @param cid
+     * @param school
      * @return
      */
     @Override
-    public Map<String, Object> addOne(Student student) {
-
-        student.setStudentId(UUID.randomUUID().toString());        //生成随机数作为xueshengid
+    public Map<String, Object> addOne(String studentName,Integer studentSex,String number,String password,String cid,String school) {
+        Student student = new Student();
+        student.setStudentId(UUID.randomUUID().toString());        //生成随机数
         student.setSchool("河北软件职业技术学院");         //学校默认为河北软件职业技术学院
+
+        student.setStudentName(studentName);
+        student.setStudentSex(studentSex);
+        student.setNumber(number);
+        student.setPassword(password);
+        student.setCid(cid);
         studentMapper.insert(student);
 
         //返回数据
@@ -118,12 +130,38 @@ public class StudentServiceImpl implements IStudentService {
 
     /**
      * 修改学生信息
-     * @param student
+     * @param studentId
+     * @param studentName
+     * @param studentSex
+     * @param number
+     * @param password
+     * @param cid
+     * @param school
      * @return
      */
     @Override
-    public Map<String, Object> updateOne(Student student) {
+    public Map<String, Object> updateOne(String studentId,String studentName,Integer studentSex,String number,String password,String cid,String school) {
+
+        //判断id是否为空
+        if (studentId==null) {
+            return ReturnMapUtil.printf(-1,"非法调用");
+        }else {
+            Student student = studentMapper.selectById(studentId);
+            if (student==null){
+                return ReturnMapUtil.printf(-2,"该学生不存在");
+            }
+        }
+        Student student = new Student();
+
+        student.setStudentId(studentId);
+        student.setSchool(school);
+        student.setStudentName(studentName);
+        student.setStudentSex(studentSex);
+        student.setNumber(number);
+        student.setPassword(password);
+        student.setCid(cid);
         studentMapper.updateById(student);
+
         //返回数据
         return ReturnMapUtil.printf(0, "修改成功");
     }
