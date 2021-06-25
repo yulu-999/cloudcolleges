@@ -22,4 +22,6 @@ public interface CourserMapper extends BaseMapper<Course> {
     @Select("SELECT *  FROM course  WHERE course_name LIKE  '%${content}%'  LIMIT #{page},#{limit}")
     List<Map<String, Object>> selectAllCourse(@Param("page") Integer page, @Param("limit") Integer limit, @Param("content") String content);
 
+    @Select("SELECT * FROM course LEFT JOIN courseinfo on course.course_id = courseinfo.course_id WHERE courseinfo.studnet_id=#{id}")
+    List<Map<String, Object>> findMycourse(@Param("id") String id);
 }

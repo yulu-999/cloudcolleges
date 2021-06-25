@@ -1,6 +1,7 @@
 package team.rookie.course.service.Impl;
 
 import cn.hutool.core.util.IdUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import team.rookie.api.pojo.Course;
@@ -183,15 +184,8 @@ public class CourseServiceImpl implements ICourseService {
             if (id==null){
                 return ReturnMapUtil.printf(-1,"非法登录");
             }else {
-                Map<String, Object> map1 = new HashMap<>();
-
-                Course course = courserMapper.selectById(id);
-                System.out.println(course);
-                map1.put("code",0);
-                map1.put("data",course);
-                map1.put("msg","查询成功");
-
-                return map1;
+                List<Map<String, Object>> mycourse = courserMapper.findMycourse(id);
+                return ReturnMapUtil.printf(0,"获取成功",mycourse);
             }
         }
     }
