@@ -68,4 +68,16 @@ public class CourseController   {
     public Map<String, Object> selectCourseById(String id) {
         return iCourseService.selectCourseById(id);
     }
+
+
+
+    @RequestMapping("/course/Bytoken")
+    public Map<String, Object> selectCourseBytoken(String token){
+
+        return iCourseService.selectCourseByToken(token);
+
+    }
 }
+
+
+

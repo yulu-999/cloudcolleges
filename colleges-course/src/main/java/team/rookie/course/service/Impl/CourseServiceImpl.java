@@ -169,4 +169,29 @@ public class CourseServiceImpl implements ICourseService {
         }
 
     }
+
+    @Override
+    public Map<String, Object> selectCourseByToken(String token) {
+
+        if (token==null ||token.equals("")){
+            return ReturnMapUtil.printf(-1,"非法登录");
+        }else {
+            Map<String, Object> map = adminFeignService.getTokenByID(token);
+            String id = map.get("data").toString();
+            System.out.println(id);
+
+            if (id==null){
+                return ReturnMapUtil.printf(-1,"非法登录");
+            }else {
+                Map<String, Object> map1 = new HashMap<>();
+
+                Course course = courserMapper.selectById(id);
+                map1.put("code",0);
+                map1.put("data",course);
+                map1.put("msg","查询成功");
+
+                return map1;
+            }
+        }
+    }
 }

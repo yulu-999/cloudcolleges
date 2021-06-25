@@ -48,4 +48,7 @@ public interface ICourseService {
      */
     Map<String, Object> selectCourseById(String id);
 
+
+    Map<String, Object> selectCourseByToken(String token);
+
 }
