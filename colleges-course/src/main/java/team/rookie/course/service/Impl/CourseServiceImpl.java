@@ -185,7 +185,19 @@ public class CourseServiceImpl implements ICourseService {
                 return ReturnMapUtil.printf(-1,"非法登录");
             }else {
                 List<Map<String, Object>> mycourse = courserMapper.findMycourse(id);
-                return ReturnMapUtil.printf(0,"获取成功",mycourse);
+                ArrayList<Map<String, Object>> data = new ArrayList<>();
+                for (Map<String,Object> map1: mycourse
+                     ) {
+                        Map<String, Object> map2 = new HashMap<>();
+                        map2.put("courseId",map1.get("course_id"));
+                        map2.put("center",map1.get("courseinfo_id"));
+                        map2.put("courseName",map1.get("course_name"));
+                        map2.put("teacher",map1.get("teacher_id"));
+                        map2.put("max",map2.get("course_max"));
+                        map2.put("school",map2.get("河北软件职业技术学院"));
+                        data.add(map2);
+                }
+                return ReturnMapUtil.printf(0,"获取成功",data);
             }
         }
     }
