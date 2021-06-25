@@ -178,16 +178,14 @@ public class CourseServiceImpl implements ICourseService {
             return ReturnMapUtil.printf(-1,"非法登录");
         }else {
             Map<String, Object> map = adminFeignService.getTokenByID(token);
-            String id = map.get("data").toString();
-            System.out.println(id);
 
+            String id = map.get("data").toString();
             if (id==null){
                 return ReturnMapUtil.printf(-1,"非法登录");
             }else {
                 List<Map<String, Object>> mycourse = courserMapper.findMycourse(id);
                 ArrayList<Map<String, Object>> data = new ArrayList<>();
-                for (Map<String,Object> map1: mycourse
-                     ) {
+                for (Map<String,Object> map1: mycourse) {
                         Map<String, Object> map2 = new HashMap<>();
                         map2.put("courseId",map1.get("course_id"));
                         map2.put("center",map1.get("courseinfo_id"));

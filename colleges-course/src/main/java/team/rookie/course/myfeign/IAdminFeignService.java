@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import team.rookie.course.hystrix.AdminHystrixServiceImpl;
 //import team.rookie.course.hystrix.AdminHystrixServiceImpl;
 
 import java.util.Map;
@@ -13,8 +14,8 @@ import java.util.Map;
 /**
  * @Desc 调取admin模块的接口
  */
-//@FeignClient(name = "admin",fallback = AdminHystrixServiceImpl.class)
-@FeignClient("admin")
+@FeignClient(name = "admin",fallback = AdminHystrixServiceImpl.class)
+//@FeignClient("admin")
 @Component("adminFeignService")
 public interface IAdminFeignService {
 

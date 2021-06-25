@@ -12,7 +12,7 @@ import team.rookie.remark.hystrix.AdminHystrixServiceImpl;
 import java.util.Map;
 
 @FeignClient(name = "admin",fallback = AdminHystrixServiceImpl.class)
-//@Component("adminFeignService")
+@Component("adminFeignService")
 public interface IAdminFeignService {
 
     /**

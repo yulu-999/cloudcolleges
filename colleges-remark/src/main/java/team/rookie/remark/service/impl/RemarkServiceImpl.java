@@ -1,5 +1,7 @@
 package team.rookie.remark.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -43,31 +45,19 @@ public class RemarkServiceImpl implements IRemarkService {
 
             remarkMapper.insert(remarkInfo);
 
-            return ReturnMapUtil.printf(0,"添加成功");
+            return ReturnMapUtil.printf(0,"点评成功");
         }
     }
 
     @Override
     public Map<String, Object> byId(String courseId) {
-
-        RemarkInfo  remarkInfo = remarkMapper.selectById(courseId);
-
-        if (remarkInfo==null){
-            return ReturnMapUtil.printf(-1,"没有此学生");
-        }else {
-            if (remarkInfo.getMyshow()==0){
-                return ReturnMapUtil.printf(-1,"没有此学生");
+            if (courseId==null){
+                return ReturnMapUtil.printf(-1,"没有该课程");
             }
-            ArrayList<Map<String, Object>> data = new ArrayList<>();
-            HashMap<String, Object> remarkMap = new HashMap<>();
-            remarkMap.put("id",remarkInfo.getRemarkInfoId());
-            remarkMap.put("level",remarkInfo.getLevel());
-            remarkMap.put("content",remarkInfo.getContent());
-            data.add(remarkMap);
-            return ReturnMapUtil.printf(0,"查询成功",data);
-        }
-
-
+            QueryWrapper<RemarkInfo> query = new QueryWrapper<>();
+            query.eq("course_id",courseId);
+            List<RemarkInfo> remarkInfos = remarkMapper.selectList(query);
+            return ReturnMapUtil.printf(0,"查询成功",remarkInfos);
     }
 
     @Override

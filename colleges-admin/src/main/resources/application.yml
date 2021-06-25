@@ -25,7 +25,6 @@ spring:
 # 配置注册中心 eureka
 eureka:
   instance:
-
     instance-id: admin
     appname: admin
     prefer-ip-address: true    # 访问路径可显示ip地址
@@ -33,8 +32,8 @@ eureka:
   client:
     service-url:
       #Eureka注册服务中心的通信zone和url地址 通常以 ，分割
-      #defaultZone: http://10.2.25.33:10000/eureka,http://10.2.25.29:10000/eureka,http://10.2.25.45:10000/eureka,http://10.2.25.9:10000/eureka
-      defaultZone: http://127.0.0.1:10000/eureka
+      defaultZone: http://10.2.61.81:10000/eureka,http://10.2.61.75:10000/eureka,http://10.2.61.87:10000/eureka
+      #defaultZone: http://127.0.0.1:10000/eureka
     register-with-eureka: true   #是否要向Eureka注册中心注册自己，自己是服务端，所以设定为false意味着不需要
     fetch-registry: true  #true表示客户端,false是注册中心服务端,单注册中心的时候就为false，集群注册中心的时候就要为true
 

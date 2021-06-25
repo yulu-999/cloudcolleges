@@ -1,5 +1,6 @@
 package team.rookie.admin.utils;
 
+import cn.hutool.core.util.IdUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +66,7 @@ public class TokenUtils {
         //获取操作键值对象
         ValueOperations<String,String> operations = redisTemplate.opsForValue();
         // 生成token
-        String token = IDUtil.getID();
+        String token = IdUtil.simpleUUID();
         // 存入并设置失效时间为1天时间为
         operations.set(token+"_token",id,1, TimeUnit.DAYS);
         // 返回 Token
