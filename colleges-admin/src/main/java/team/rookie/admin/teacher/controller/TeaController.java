@@ -63,7 +63,7 @@ public class TeaController {
     @RequestMapping("/teacher/add")
     public Map<String, Object> add(String name,Integer sex,String number, String password, String school){
 
-        return  teaService.add(name,sex,name,password,school);
+        return  teaService.add(name,sex,number,password,school);
     };
 
 

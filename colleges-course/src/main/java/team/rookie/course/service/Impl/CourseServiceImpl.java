@@ -78,16 +78,17 @@ public class CourseServiceImpl implements ICourseService {
         }else {
             Map<String, Object> byID = adminFeignService.getTokenByID(token);
             // 服务出现异常
-            if (!byID.get("code").toString().equals("0")){
+            if (!byID.get("code").toString().equals("200")){
                 return byID;
             }else {
+
                 String studentID = byID.get("data").toString();
                 CourseInfo courseInfo = new CourseInfo();
                 courseInfo.setCourseInfoId(IdUtil.simpleUUID());
                 courseInfo.setStudentId(studentID);
                 courseInfo.setCourseId(id);
                 courseInfo.setBirth("2020-09-16");
-                courseInfo.setShow(1);
+//                courseInfo.setShow(1);
                 // 加入课程
                 courseInfoMapper.insert(courseInfo);
                 return ReturnMapUtil.printf(0,"加成功");
@@ -146,10 +147,24 @@ public class CourseServiceImpl implements ICourseService {
             //查询课程
             Course course = courserMapper.selectById(id);
 
-            if (course==null)
+            if (course==null){
                 return ReturnMapUtil.printf(-1,"没有该课程");
-            else
-                return ReturnMapUtil.printf(200,"获取成功",course);
+            }
+            else{
+                HashMap<String, Object> data = new HashMap<>();
+                data.put("courseId",course.getCourseId());
+                data.put("courseName",course.getCourseName());
+                data.put("max",course.getCourseMax());
+                data.put("school","河北软件职业技术学院");
+                Map<String, Object> teacher = adminFeignService.getTeacherById(course.getTeacherId());
+                if (teacher.get("data")!=null){
+                    data.put("tname",teacher.get("data"));
+                }else {
+                    data.put("tname","获取失败");
+                }
+                return ReturnMapUtil.printf(200,"获取成功",data);
+            }
+
 
         }
 
