@@ -186,6 +186,7 @@ public class CourseServiceImpl implements ICourseService {
                 Map<String, Object> map1 = new HashMap<>();
 
                 Course course = courserMapper.selectById(id);
+                System.out.println(course);
                 map1.put("code",0);
                 map1.put("data",course);
                 map1.put("msg","查询成功");
